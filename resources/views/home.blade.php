@@ -36,6 +36,9 @@
                             <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                         </ul>
                     </li>
+                    @if ($role_id == 1)
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}">Admin</a></li>
+                    @endif
                 </ul>
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">

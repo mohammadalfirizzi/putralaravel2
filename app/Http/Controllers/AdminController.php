@@ -99,6 +99,7 @@ class AdminController extends Controller
             'email' => $email,
             'password' => $password
         ])) {
+            //dd(Auth::user());
             return redirect()->route('pesan.home');
         } else {
             return redirect()->to('/auth/login');

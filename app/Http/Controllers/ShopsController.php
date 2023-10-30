@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ShopsController extends Controller
@@ -13,11 +14,13 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        //$shop_items = Shop::all();
-        $shop_items = DB::table('shops')->paginate(4);
-        $jumlah_cart = DB::table('data_pemesan')->count();
-        //dd($shop_items);
-        return view('home', ['shop_items' => $shop_items, 'jumlah_cart' => $jumlah_cart]);
+        //$shop_items = Shop::all();    
+        if (Auth::user()) {
+            $shop_items = DB::table('shops')->paginate(4);
+            $jumlah_cart = DB::table('data_pemesan')->count();
+            //dd($shop_items);
+            return view('home', ['shop_items' => $shop_items, 'jumlah_cart' => $jumlah_cart, 'role_id' => Auth::user()->role_id]);
+        }
     }
 
 
