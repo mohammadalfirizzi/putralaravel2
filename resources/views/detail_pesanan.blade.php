@@ -36,6 +36,9 @@
                             <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                         </ul>
                     </li>
+                    @if ($role_id == 1)
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}">Admin</a></li>
+                    @endif
                 </ul>
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
@@ -77,7 +80,8 @@
                             <span class="price">@currency($data->unit_price)</span>
                         </div>
                         <div class="product-short-desc">
-                            <p>Kakap adalah keluarga ikan laut dasaran (demersal) yang hidup secara berkelompok di dasar-dasar karang atau terumbu karang. Kakap termasuk famili Lutjanidae. Mempunyai ciri tubuh yang bulat pipih dengan sirip memanjang sepanjang punggung. Jenis ikan kakap yang banyak ditemui di Indonesia adalah jenis kakap merah (L. campechanus). Beberapa jenis yang lain yang juga banyak ditemui adalah kakap kuning, kakap hitam dan lain-lain.
+                            <p>
+                                {{$data->deskripsi}}
                             </p>
                         </div>
                         <div class="product-select">

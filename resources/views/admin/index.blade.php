@@ -23,7 +23,8 @@
         <th>No</th>
         <th>Image</th>
         <th>Name</th>
-        <th>Details</th>
+        <th>Unit Price</th>
+        <th>Deskripsi</th>
         <th width="280px">Action</th>
     </tr>
     @foreach ($products as $product)
@@ -32,6 +33,7 @@
         <td><img src="{{ $product->image }}" width="100px"></td>
         <td>{{ $product->title }}</td>
         <td>@currency($product->unit_price) </td>
+        <td>{{ $product->deskripsi }}</td>
         <td>
             <form action="{{route('admin.delete')}}" method="POST">
                 @csrf

@@ -14,6 +14,11 @@ class AdminController extends Controller
         return view('admin.index', ['products' => $data]);
     }
 
+    public function create()
+    {
+        return view('admin.create');
+    }
+
     public function store(Request $request)
     {
         $title = $request->title;

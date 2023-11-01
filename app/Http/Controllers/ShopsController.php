@@ -55,8 +55,10 @@ class ShopsController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('shops')->where('id', $id)->first();
-        return view('detail_pesanan', ['data' => $data]);
+        if (Auth::user()) {
+            $data = DB::table('shops')->where('id', $id)->first();
+            return view('detail_pesanan', ['data' => $data, 'role_id' => Auth::user()->role_id]);
+        }
     }
 
     /**
